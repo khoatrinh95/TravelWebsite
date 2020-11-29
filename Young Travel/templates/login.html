@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }} - LOGIN{% endblock %}
+
+
+{% block content %}
+
+
+    {% if current_user.is_authenticated %}
+        <form class="form-signin" action="/logout">
+                <div class="card" style="width: 18rem; margin: auto">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Sign Out</h5>
+                        <br>
+                        <button class="btn btn-info" type="submit">Click here</button>
+                    </div>
+                </div>
+
+
+            </form>
+
+    {% else %}
+        <br><br>
+        <div>
+            <form class="form-signin" action="/login" method="post">
+                <div class="card" style="width: 18rem; margin: auto">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Sign In</h5>
+                        {% for message in get_flashed_messages() %}
+                            <div class="text-danger">
+                            {{ message }}
+                            </div>
+                        {% endfor %}
+
+                        {% if form.errors %}
+                            {{ form.errors }}
+                        {% endif %}
+                    <div id="error"></div>
+                        <div class="row">
+                            {{ form.csrf_token }}
+                            {{ form.username(placeholder="Username",class="form-control",id="username", onchange="username1()") }}
+                        </div>
+                        <div class="row">
+                            {{ form.password(placeholder="Password",class="form-control") }}
+                        </div>
+                        <br>
+                        <button class="btn btn-info" type="submit">Sign in</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    {% endif %}
+
+{% endblock %}

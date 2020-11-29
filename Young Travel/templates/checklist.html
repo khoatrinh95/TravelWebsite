@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }} - CHECKLIST{% endblock %}
+{% block background %}background-color: #f5f5f5;{% endblock %}
+
+{% block content %}
+    <br><br>
+    <div class="container">
+        <div class="text-center"><h2>CHECKLISTS</h2></div>
+        <br><br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 22rem;">
+                    <img class="card-img-top" src="/static/photo/beach1.png" alt="Card image cap" height="430px">
+                    <div class="card-body">
+                        <h5 class="card-title">Beach</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Are you traveling to a tropical country with
+                            beautiful beaches? Then this checklist is for you.</h6>
+                        <br>
+                        <ul class="list-group list-group-flush">
+                            {% for item in beach %}
+                                <li class="list-group-item">{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" style="width: 22rem;">
+                    <img class="card-img-top" src="/static/photo/hiking.png" alt="Card image cap" height="430px">
+                    <div class="card-body">
+                        <h5 class="card-title">Outdoors</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Fan of outdoor activities such as hiking, kayaking,
+                            camping, etc.? This checklist is your best friend.</h6>
+                        <br>
+                        <ul class="list-group list-group-flush">
+                            {% for item in outdoors %}
+                                <li class="list-group-item">{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" style="width: 22rem;">
+                    <img class="card-img-top" src="/static/photo/sightseeing1.png" alt="Card image cap" height="430px">
+                    <div class="card-body">
+                        <h5 class="card-title">Sightseeing</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Are you fascinated by the history and the architecture
+                            when you take a stroll through the city? This list will prepare you for the best
+                            experience.</h6>
+                        <ul class="list-group list-group-flush">
+                            {% for item in sight %}
+                                <li class="list-group-item">{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="row"
+             style="background-color: white; border-style: solid; border-width: thin; border-color: lightgrey">
+            <div class="col-md-4">
+                <img src="https://images.unsplash.com/photo-1516690962695-bd573a42a487?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+                     alt="" style="width: 100%; margin-top: 8px; margin-bottom: 8px">
+                <h5 class="text-center">Essentials</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Here is a list of the essential items that you must have in
+                    your bag
+                    no matter where you go</h6>
+            </div>
+            <div class="col-md-8">
+                <table class="text-center" border="1px" style="width: 100%; border-color: lightgrey; margin: 8px">
+                    <tr  style="height: 75px">
+                        {% for item in essentials[0:3] %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr style="height: 75px">
+                        {% for item in essentials[3:6] %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr style="height: 75px">
+                        {% for item in essentials[6:9] %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr style="height: 75px">
+                        {% for item in essentials[9:12] %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
