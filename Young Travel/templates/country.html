@@ -1,0 +1,35 @@
+{% extends "destinations.html" %}
+{% block content %}
+
+    <br><br>
+    <h2>{{ country }}</h2>
+    <br><br>
+<img src="{{ photo }}" alt="" class="countryphoto">
+    <br><br>
+    <div class="container">
+        <h5>You can find your potential travel mates here if you both are present at the country at the same time.
+            So hit each other up by using the comment section below!</h5>
+
+        <hr>
+
+        {% if current_user.is_authenticated %}
+            <form action="{{url_for('country',a=country)}}" method="post">
+                {{ form.csrf_token }}
+                <div class="row">{{ form.comment(class="form-control", id="comment", onchange="comment1()") }}</div>
+                <br>
+                <div class="row"><button class="btn btn-outline-secondary" type="submit"> Comment</button></div>
+
+            </form>
+            <br>
+            {% for x in comment %}
+                <h5 style="text-align: left">{{ current_user.id }}</h5>
+                <h6 style="text-align: left" class="date">date</h6>
+                <p>{{ x }}</p>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>Not logged in? <a href="/login">Click here</a> to log in to post your comment.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+

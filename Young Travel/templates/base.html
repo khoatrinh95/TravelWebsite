@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <title>{% block title %}Young Travel {% endblock %}</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Meddon|Raleway:300i,400&display=swap"
+              rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../static/style.css?v=7.42111">
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/3c5907cfae.js" crossorigin="anonymous"></script>
+        <script src="../static/Username1.js?v=2.2111111111"></script>
+        <style>
+            body {
+                padding-top: 80px;
+            {% block background %}
+                background-image: url("/static/photo/van.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            {% endblock %}
+            }
+
+        </style>
+    {% endblock %}
+</head>
+{% block body %}
+    <body>
+    {% block navbar %}
+        <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: white">
+            <a class="navbar-brand" href="/"> <img src="/static/photo/logo3.png" alt="" width="27px"> </a>
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav  nav-block mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/destinations">DESTINATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/checklist">CHECKLISTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tips">TIPS & TRICKS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/aboutme">ABOUT ME</a>
+                    </li>
+
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Hello, {{ current_user.id }}</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">LOGIN</a>
+                        </li>
+                    {% endif %}
+
+                </ul>
+            </div>
+
+        </nav>
+
+    {% endblock %}
+    {% block content %}
+        <br><br><br><br>
+
+        <div class="container-fluid">
+            <h1 class="title">YOUNG TRAVEL</h1>
+        </div>
+        <div class="container">
+            <h5>This is a place for you to get inspired by fellow travelers who got to explore the world without
+                hurting their wallets. We have many tips and tricks for you no matter what type of traveler you are.
+                We welcome first-time travelers, solo travelers, experienced travelers, and most importantly, travelers
+                on a
+                budget! So don't spend too much time on this website, go book your fight ticket!</h5>
+        </div>
+        <div style="height: 700px">
+        </div>
+    {% endblock %}
+    {% block footer %}
+        <br><br>
+        <div class="foot">
+            <h6>FOLLOW MY JOURNEY</h6>
+            <p>
+                <a class="link" href="https://www.instagram.com/notquoi/"> <i class="fab fa-instagram fa-2x"
+                                                                              style="margin-right: 15px"></i> </a>
+                <a class="link" href="https://www.youtube.com/channel/UCkLf0Xe_eGb5siJHWgpYvvw?view_as=subscriber">
+                    <i class="fab fa-youtube fa-2x"></i></a>
+            </p>
+        </div>
+    {% endblock %}
+    </body>
+    <script src="../static/YoungTravel.js?v=2.2"></script>
+
+{% endblock %}
+</html>

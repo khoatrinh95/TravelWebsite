@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }} - TIPS{% endblock %}
+{% block background %}background-color: #f5f5f5;{% endblock %}
+
+{% block content %}
+    <br><br>
+    <div class="container">
+        <div class="text-center"><h2>SEARCH PAGE</h2></div>
+        <div class="row">
+            <div class="search-box ">
+                <form action="/searchpage" method="post">
+                    <input class="search-txt" type="text" name="input" placeholder="Type to search">
+                    <a class="search-btn" href="#"></a>
+                    <i class="fas fa-search fa-lg"></i>
+                </form>
+            </div>
+        </div>
+        <br>
+        {% if True in list %}
+            {% if list[0]==True %}
+                <div class="row" id="airport">
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1576603297621-a16841826595?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80"
+                             alt="" style="width: 100%" class="rounded">
+                    </div>
+                    <div class="col-md-8">
+                        <a class="link" href="{{ url_for('article',a="airport") }}">
+                            <p class="h1 article">Make the most out of your wait time at the airport</p></a>
+                        <p>Traveling is exciting but we all know that waiting at the airport is one of the most boring
+                            things
+                            during the trip. So let's make the best out of it. Who says we can't have fun while waiting
+                            to board
+                            our flight?</p>
+                    </div>
+                </div>
+                <br><br>
+            {% endif %}
+            {% if list[1]==True %}
+                <div class="row" id="airbnb">
+                    <div class="col-md-4">
+                        <img src="https://www.toeuropeandbeyond.com/wp-content/uploads/2016/02/plateau-mont-royal-9.jpg"
+                             alt="" style="width: 100%" class="rounded">
+                    </div>
+                    <div class="col-md-8">
+                        <a class="link" href="{{ url_for('article',a="airbnb") }}">
+                            <p class="h1 article">Here's how to crack the cheap AirBnB code</p></a>
+                        <p>AirBnb's nowadays cost as much as hotels and you are left with no choice but to spend
+                            a fortune to have a place to sleep. But here are some AirBnb tips that might help you in
+                            saving
+                            some coffee coins.</p>
+                    </div>
+                </div>
+                <br><br>
+            {% endif %}
+            {% if list[2]==True %}
+                <div class="row" id="skin">
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1531895861208-8504b98fe814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+                             alt="" style="width: 100%" class="rounded">
+                    </div>
+                    <div class="col-md-8">
+                        <a class="link" href="{{ url_for('article',a="skin") }}">
+                            <p class="h1 article">How to keep your skin clear while travelling?</p></a>
+                        <p>Weather change, dry air in the plane, jetlag, lack of sleep, all the right reasons for your
+                            skin to freak out</p>
+                    </div>
+                </div>
+                <br><br>
+            {% endif %}
+            {% if list[3]==True %}
+                <div class="row" id="flight">
+                    <div class="col-md-4">
+                        <img src="/static/photo/ap2.png"
+                             alt="" style="width: 100%" class="rounded">
+                    </div>
+                    <div class="col-md-8">
+                        <a class="link" href="{{ url_for('article',a="flight") }}">
+                            <p class="h1 article">Looking for a cheap flight?</p></a>
+                        <p>There's nothing more satisfying than finding a $500 two-way flight ticket to Japan. Want to
+                            know the
+                            tricks? These apps are just exactly what you need</p>
+                    </div>
+                </div>
+                <br><br>
+            {% endif %}
+
+
+        {% else %}
+            <br><br><br>
+            <h4>No article matched</h4>
+        {% endif %}
+
+
+    </div>
+{% endblock %}
